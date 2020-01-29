@@ -1,0 +1,43 @@
+# action.yml
+name: "get-packages-action"
+description: "Get package file"
+
+inputs:
+    aws-access-key:
+        description: "Package file"
+        required: true
+        default: ""
+
+    aws-secret-access-key:
+        description: "Package file"
+        required: true
+        default: ""
+
+    aws-region:
+        description: "Package file"
+        required: true
+        default: ""
+
+    package-file-path:
+        description: "Package file"
+        required: true
+        default: ""
+
+    target-dir:
+        description: "Target directory for packages"
+        required: true
+        default: ""
+
+outputs:
+    result:
+        description: "Show the result of deploying"
+
+runs:
+    using: "docker"
+    image: "Dockerfile"
+    args:
+        - ${{ inputs.aws-access-key }}
+        - ${{ inputs.aws-secret-access-key }}
+        - ${{ inputs.aws-region }}
+        - ${{ inputs.package-file-path }}
+        - ${{ inputs.target-dir }}
