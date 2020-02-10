@@ -1,8 +1,8 @@
 # Container image that runs your code
-FROM alpine:latest
+FROM cdevqualitia/awscli:latest
 
-RUN apk add --no-cache bash python3 git jq\
-    && pip3 --no-cache-dir install awscli yq
+RUN apk add --no-cache git\
+    && pip3 --no-cache-dir install yq
 
 COPY entrypoint.sh /entrypoint.sh
 
