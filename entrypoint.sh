@@ -9,7 +9,7 @@ readonly PACKAGE_FILE=$4
 readonly TARGET_DIR=$5
 readonly package=$(yq -y .package ${PACKAGE_FILE} | head -n1)
 readonly s3_bucket="s3://${package}"
-readonly commit_id=$(echo ${package} | tr "." "\n" | head -n 1 | tr "." "\n" | tail -n 1)
+readonly commit_id=$(echo ${package} | tr "." "\n" | head -n 1 | tr "/" "\n" | tail -n 1)
 
 echo "[Show valuables]"
 echo "AWS_DEFAULT_REGION: ${AWS_DEFAULT_REGION}"
