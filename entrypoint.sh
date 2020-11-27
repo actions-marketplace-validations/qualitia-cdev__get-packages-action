@@ -18,7 +18,7 @@ echo "commit_id: ${commit_id}"
 echo "TARGET_DIR: ${TARGET_DIR}"
 echo "PACKAGE_FILE: ${PACKAGE_FILE}"
 echo "[Start copy ${s3_bucket} to current dir]"
-echo "::set-env name=COMMIT_ID::${commit_id}"
+echo "COMMIT_ID=${commit_id}" >> $GITHUB_ENV 
 
 aws s3 cp ${s3_bucket} package.tar.gz
 
